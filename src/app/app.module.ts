@@ -8,12 +8,20 @@ import { CourseComponent } from './course/course.component';
 import { CoursesService } from './courses.service';
 import { AuthorService } from './author.service';
 import { FormsModule } from '@angular/forms';
+import { SummaryPipe } from './summary.pipe';
+import { StarButtonComponent } from './star-button/star-button.component';
+import { TitleInputComponent } from './title-input/title-input.component';
+import { TitlePipe } from './title.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
-    CourseComponent
+    CourseComponent,
+    SummaryPipe,
+    StarButtonComponent,
+    TitleInputComponent,
+    TitlePipe
   ],
   imports: [
     BrowserModule,

@@ -10,9 +10,10 @@
 
 <!-- 从component到view的单向绑定 -->
 <input [(ngModel)]="name" (keyup.enter)="onNameClick()" />
-
-{{course.title | uppercase}}<br>
+<br>
+{{course.title | uppercase |summary:5}}<br>
 {{course.price | currency}}<br>
 {{course.rating |number:'1.2-2'}}<br>
 {{course.releaseData | date:'shortDate'}}<br>
 {{course.students |number}}
+
