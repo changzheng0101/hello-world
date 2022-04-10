@@ -1,0 +1,6 @@
+<div class="card">
+    <div class="card-header" (click)="onTitleClick()">{{title}}</div>
+    <div class="card-body" [hidden]="isActivate">
+        <ng-content></ng-content>
+    </div>
+</div>

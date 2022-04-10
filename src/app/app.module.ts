@@ -15,6 +15,8 @@ import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.compo
 import { TweetLikeComponent } from './tweet-like/tweet-like.component';
 import { IfTestComponent } from './if-test/if-test.component';
 import { FormFormatDirective } from './form-format.directive';
+import { ZippyComponent } from './zippy/zippy.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { FormFormatDirective } from './form-format.directive';
     BootstrapPanelComponent,
     TweetLikeComponent,
     IfTestComponent,
-    FormFormatDirective
+    FormFormatDirective,
+    ZippyComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
