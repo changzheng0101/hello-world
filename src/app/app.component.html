@@ -1,2 +1,2 @@
 <h1>Angular</h1>
-<app-star-button [is-activated]="post.isActivated" ></app-star-button>
+<app-star-button [is-activated]="post.isActivated" (change)="onChange()"></app-star-button>

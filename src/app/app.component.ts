@@ -12,4 +12,9 @@ export class AppComponent {
     title: "is title",
     isActivated: true
   }
+
+  onChange() {
+    console.log("onchange run .....");
+
+  }
 }
