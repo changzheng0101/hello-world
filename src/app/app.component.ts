@@ -10,10 +10,16 @@ export class AppComponent {
   title = 'hello-world';
   viewModel = 'map';
 
+  courses = [
+    { id: 1, name: 'course1' },
+    { id: 2, name: 'course2' },
+    { id: 3, name: 'course3' }
+  ];
+
   tweet = {
-    body:' some title',
-    isLiked:false,
-    likeCount:0
+    body: ' some title',
+    isLiked: false,
+    likeCount: 0
   }
 
   post = {
@@ -21,8 +27,16 @@ export class AppComponent {
     isActivated: true
   }
 
-  onChange(isActivated:changeEvent) {
+  onChange(isActivated: changeEvent) {
     console.log("onchange run .....", isActivated.status);
+  }
 
+  addCourse() {
+    this.courses.push({ id: 4, name: 'course4' });
+  }
+
+  remove(course: any) {
+    let index = this.courses.indexOf(course);
+    this.courses.splice(index, 1);
   }
 }
