@@ -14,6 +14,7 @@ import { TitlePipe } from './title.pipe';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { TweetLikeComponent } from './tweet-like/tweet-like.component';
 import { IfTestComponent } from './if-test/if-test.component';
+import { FormFormatDirective } from './form-format.directive';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { IfTestComponent } from './if-test/if-test.component';
     TitlePipe,
     BootstrapPanelComponent,
     TweetLikeComponent,
-    IfTestComponent
+    IfTestComponent,
+    FormFormatDirective
   ],
   imports: [
     BrowserModule,

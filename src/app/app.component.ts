@@ -37,7 +37,7 @@ export class AppComponent {
    * @param course 
    * @returns 
    */
-  trackById(index:number, course:any) {
+  trackById(index: number, course: any) {
     return course ? course.id : undefined;
   }
 
