@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class StarButtonComponent {
   @Input('is-activated') isActivated = false;
-  @Output() change = new EventEmitter()
+  @Output('change') change = new EventEmitter()
 
   constructor() { }
 
