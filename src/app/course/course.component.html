@@ -1,1 +1,10 @@
-<p>course works!</p>
+<h2>{{authors.length}} Authors</h2>
+<ul *ngFor="let author of authors">
+    <li>{{author}}</li>
+</ul>
+<div (click)="onDivClick()"> 
+    <button class="btn btn-primary" (click)="onBtnClick($event)">save</button>
+</div>
+
+<input #email (keyup.enter)="onEnterUp(email.value)"/>
+

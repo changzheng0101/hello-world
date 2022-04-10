@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthorService } from '../author.service';
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })
-export class CourseComponent implements OnInit {
+export class CourseComponent {
+  authors;
 
-  constructor() { }
+  constructor(authorService: AuthorService) {
+    this.authors = authorService.getAuthors();
+  }
 
-  ngOnInit(): void {
+  onBtnClick($event:Event){
+    console.log("button has been clicked");
+    console.log($event);
+    $event?.stopPropagation();
+  }
+
+  onDivClick(){
+    console.log("div was click");
+  }
+    
+  onEnterUp(email:any){
+    console.log(email);
   }
 
 }
