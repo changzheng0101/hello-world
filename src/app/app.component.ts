@@ -8,6 +8,11 @@ import { changeEvent } from './app.module';
 })
 export class AppComponent {
   title = 'hello-world';
+  tweet = {
+    body:' some title',
+    isLiked:false,
+    likeCount:0
+  }
 
   post = {
     title: "is title",

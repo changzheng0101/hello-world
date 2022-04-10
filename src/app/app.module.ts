@@ -12,6 +12,8 @@ import { SummaryPipe } from './summary.pipe';
 import { TitleInputComponent } from './title-input/title-input.component';
 import { TitlePipe } from './title.pipe';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
+import { TweetLikeComponent } from './tweet-like/tweet-like.component';
+import { IfTestComponent } from './if-test/if-test.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.compo
     StarButtonComponent,
     TitleInputComponent,
     TitlePipe,
-    BootstrapPanelComponent
+    BootstrapPanelComponent,
+    TweetLikeComponent,
+    IfTestComponent
   ],
   imports: [
     BrowserModule,
