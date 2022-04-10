@@ -14,7 +14,7 @@ export class StarButtonComponent {
 
   onBtnClick() {
     this.isActivated = !this.isActivated;
-    this.change.emit();
+    this.change.emit({ status: this.isActivated });
   }
 
 }

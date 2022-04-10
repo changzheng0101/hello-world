@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { changeEvent } from './app.module';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,8 @@ export class AppComponent {
     isActivated: true
   }
 
-  onChange() {
-    console.log("onchange run .....");
+  onChange(isActivated:changeEvent) {
+    console.log("onchange run .....", isActivated.status);
 
   }
 }
