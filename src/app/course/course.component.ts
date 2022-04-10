@@ -8,23 +8,35 @@ import { AuthorService } from '../author.service';
 })
 export class CourseComponent {
   authors;
+  name: string | null = "test name";
+  course = {
+    title: "The hello",
+    rating: 4.952,
+    students: 465456,
+    price: 128,
+    releaseData: new Date(2022, 4, 10)
+  }
 
   constructor(authorService: AuthorService) {
     this.authors = authorService.getAuthors();
   }
 
-  onBtnClick($event:Event){
+  onBtnClick($event: Event) {
     console.log("button has been clicked");
     console.log($event);
     $event?.stopPropagation();
   }
 
-  onDivClick(){
+  onDivClick() {
     console.log("div was click");
   }
-    
-  onEnterUp(email:any){
+
+  onEnterUp(email: any) {
     console.log(email);
+  }
+
+  onNameClick() {
+    console.log(this.name);
   }
 
 }

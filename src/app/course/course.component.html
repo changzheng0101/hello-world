@@ -2,9 +2,17 @@
 <ul *ngFor="let author of authors">
     <li>{{author}}</li>
 </ul>
-<div (click)="onDivClick()"> 
+<div (click)="onDivClick()">
     <button class="btn btn-primary" (click)="onBtnClick($event)">save</button>
 </div>
 
-<input #email (keyup.enter)="onEnterUp(email.value)"/>
+<input #email (keyup.enter)="onEnterUp(email.value)" />
 
+<!-- 从component到view的单向绑定 -->
+<input [(ngModel)]="name" (keyup.enter)="onNameClick()" />
+
+{{course.title | uppercase}}<br>
+{{course.price | currency}}<br>
+{{course.rating |number:'1.2-2'}}<br>
+{{course.releaseData | date:'shortDate'}}<br>
+{{course.students |number}}
