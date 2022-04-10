@@ -11,6 +11,7 @@ import { StarButtonComponent } from './star-button/star-button.component';
 import { SummaryPipe } from './summary.pipe';
 import { TitleInputComponent } from './title-input/title-input.component';
 import { TitlePipe } from './title.pipe';
+import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TitlePipe } from './title.pipe';
     SummaryPipe,
     StarButtonComponent,
     TitleInputComponent,
-    TitlePipe
+    TitlePipe,
+    BootstrapPanelComponent
   ],
   imports: [
     BrowserModule,
