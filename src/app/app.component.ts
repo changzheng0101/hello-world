@@ -8,6 +8,8 @@ import { changeEvent } from './app.module';
 })
 export class AppComponent {
   title = 'hello-world';
+  viewModel = 'map';
+
   tweet = {
     body:' some title',
     isLiked:false,

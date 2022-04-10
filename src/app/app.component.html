@@ -1,1 +1,10 @@
-<app-if-test></app-if-test>
+<ul class="nav nav-pills">
+    <ul class.active="viewModel === 'map'"><a (click)="viewModel = 'map'">Map View</a></ul>
+    <ul class.active="viewModel === 'list'"><a (click)="viewModel = 'list'">List View</a></ul>
+</ul>
+
+<div [ngSwitch]="viewModel">
+    <div *ngSwitchCase="'map'">map view content</div>
+    <div *ngSwitchCase="'list'">list view content</div>
+    <div *ngSwitchDefault>Others</div>
+</div>
