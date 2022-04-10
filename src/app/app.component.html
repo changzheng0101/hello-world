@@ -1,6 +1,6 @@
-<button (click)="addCourse()">ADD</button>
+<button (click)="downloadData()">download</button>
 <ul>
-    <li *ngFor="let course of courses;index as i">
-        {{i}}--{{course.name}} <button (click)="remove(course)">Remove</button>
+    <li *ngFor="let course of courses;index as i;trackBy: trackById">
+        {{i}}--{{course.name}}
     </li>
 </ul>

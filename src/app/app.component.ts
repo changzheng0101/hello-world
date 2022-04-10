@@ -10,11 +10,7 @@ export class AppComponent {
   title = 'hello-world';
   viewModel = 'map';
 
-  courses = [
-    { id: 1, name: 'course1' },
-    { id: 2, name: 'course2' },
-    { id: 3, name: 'course3' }
-  ];
+  courses: any;
 
   tweet = {
     body: ' some title',
@@ -25,6 +21,24 @@ export class AppComponent {
   post = {
     title: "is title",
     isActivated: true
+  }
+
+  downloadData() {
+    this.courses = [
+      { id: 1, name: 'course1' },
+      { id: 2, name: 'course2' },
+      { id: 3, name: 'course3' }
+    ];
+  }
+
+  /**
+   * 只要id不变 这个就不会更新
+   * @param index 
+   * @param course 
+   * @returns 
+   */
+  trackById(index:number, course:any) {
+    return course ? course.id : undefined;
   }
 
   onChange(isActivated: changeEvent) {
