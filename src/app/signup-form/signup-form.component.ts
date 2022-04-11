@@ -14,11 +14,11 @@ export class SignupFormComponent {
       Validators.required,
       Validators.minLength(3),
       UserNameValidators.CanNotContainSpace
-    ]),
+    ], UserNameValidators.shouldBeUnique),
     password: new FormControl('', Validators.required)
   })
 
-  get username(){
+  get username() {
     return this.form.get('username');
   }
 }

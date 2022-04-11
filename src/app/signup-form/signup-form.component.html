@@ -3,9 +3,12 @@
         <label for="username">Username</label>
         <input formControlName="username" id="username" type="text" class="form-control">
         <div *ngIf="username?.touched && username?.invalid" class="alert alert-danger">
-            <div *ngIf="username?.errors?.['required']">username must be required.</div> 
-            <div *ngIf="username?.errors?.['minlength']">the min length is {{username?.errors?.['minlength'].requiredLength}}</div> 
-            <div *ngIf="username?.errors?.['cannotContainSpace']">can not contain space</div> 
+            <!-- 下面这些错误只显示一个 -->
+            <div *ngIf="username?.errors?.['required']">username must be required.</div>
+            <div *ngIf="username?.errors?.['minlength']">the min length is
+                {{username?.errors?.['minlength'].requiredLength}}</div>
+            <div *ngIf="username?.errors?.['cannotContainSpace']">can not contain space</div>
+            <div *ngIf="username?.errors?.['shouldBeUnique']">username cant be changzheng</div>
         </div>
     </div>
     <div class="form-group">
