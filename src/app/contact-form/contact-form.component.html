@@ -1,17 +1,46 @@
-<form>
-    <div class="form-group">
-        <label for="firstName">firstName</label>
-        <input required minlength="3" maxlength="10" pattern="banana" ngModel name="firstName" #firstName="ngModel"
-            (change)="onChange(firstName)" id="firstName" type="text" class="form-control" />
-        <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
-            <div *ngIf="firstName.errors?.['required']">firstName can not be none</div>
-            <div *ngIf="firstName.errors?.['minlength']">minlength is {{firstName.errors?.['minlength'].requiredLength}}</div>
-            <div *ngIf="firstName.errors?.['pattern']">firstName can not match pattern</div>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div ngModelGroup="contact">
+        <div class="form-group">
+            <label for="firstName">firstName</label>
+            <input required minlength="3" maxlength="10" pattern="banana" ngModel name="firstName" #firstName="ngModel"
+                (change)="onChange(firstName)" id="firstName" type="text" class="form-control" />
+            <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+                <div *ngIf="firstName.errors?.['required']">firstName can not be none</div>
+                <div *ngIf="firstName.errors?.['minlength']">minlength is
+                    {{firstName.errors?.['minlength'].requiredLength}}</div>
+                <div *ngIf="firstName.errors?.['pattern']">firstName can not match pattern</div>
+            </div>
         </div>
     </div>
+
     <div class="form-group">
         <label for="comment">comment</label>
         <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
     </div>
-    <button class="btn btn-primary">submit</button>
+
+    <!-- 选择器 -->
+    <div class="form-group">
+        <label for="contactMethod">Contact Method</label>
+        <select ngModel name="contactMethod" id="contactMethod" class="form-control">
+            <option [ngValue]="method" *ngFor="let method of contactMethod ">{{method.name}}</option>
+        </select>
+    </div>
+
+    <!-- radio  -->
+    <div class="radio" *ngFor="let method of contactMethod ">
+        <label>
+            <input ngModel name="contactMethod" type="radio" [value]="method.id">
+            {{method.name}}
+        </label>
+    </div>
+
+
+    <div class="checkbox">
+        <label>
+            <input name="isSubmit" type="checkbox" ngModel>Submit to ...
+        </label>
+    </div>
+
+    <p>{{f.value | json}}</p>
+    <button class="btn btn-primary" [disabled]="f.invalid">submit</button>
 </form>

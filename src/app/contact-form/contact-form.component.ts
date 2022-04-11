@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
@@ -7,8 +7,17 @@ import { NgModel } from '@angular/forms';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent {
+  contactMethod = [
+    { id: 1, name: "email" },
+    { id: 2, name: "phone" }
+  ];
+
   onChange(firstName: NgModel) {
     console.log(firstName);
+  }
+
+  onSubmit(f: NgForm) {
+    console.log(f);
   }
 
 

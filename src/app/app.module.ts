@@ -17,6 +17,7 @@ import { IfTestComponent } from './if-test/if-test.component';
 import { FormFormatDirective } from './form-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { CourseFormComponent } from './course-form/course-form.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     IfTestComponent,
     FormFormatDirective,
     ZippyComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    CourseFormComponent
   ],
   imports: [
     BrowserModule,
