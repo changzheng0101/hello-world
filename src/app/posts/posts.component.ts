@@ -1,17 +1,20 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
-export class PostsComponent {
+export class PostsComponent implements OnInit {
   posts: any[] = [];
-  url: string = "https://jsonplaceholder.typicode.com/posts";
 
-  constructor(private http: HttpClient) {
-    this.http.get(this.url)
+  constructor(private postService: PostService) {
+
+  }
+
+  ngOnInit(): void {
+    this.postService.getPosts()
       .subscribe((result) => {
         this.posts = result as any;
         console.log(this.posts);
@@ -21,7 +24,7 @@ export class PostsComponent {
   createPost(inputTitle: HTMLInputElement) {
     let post = { title: inputTitle.value };
 
-    this.http.post(this.url, post)
+    this.postService.addPost(post)
       .subscribe((response) => {
         this.posts.unshift(response);
       })
@@ -29,14 +32,14 @@ export class PostsComponent {
 
   updatePost(post: any) {
     //patch 用于更新部分属性 post需要更新整个
-    this.http.patch(this.url + '/' + post.id, JSON.stringify({ isRead: true }))
+    this.postService.updatePost(post)
       .subscribe(response => {
         console.log(response);
       })
   }
 
   deletePost(post: any) {
-    this.http.delete(this.url + '/' + post.id)
+    this.postService.delPost(post)
       .subscribe(response => {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1);

@@ -17,6 +17,7 @@ import { IfTestComponent } from './if-test/if-test.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { PasswordFormComponent } from './password-form/password-form.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostService } from './services/post.service';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { StarButtonComponent } from './star-button/star-button.component';
 import { SummaryPipe } from './summary.pipe';
@@ -57,7 +58,8 @@ import { ZippyComponent } from './zippy/zippy.component';
   ],
   providers: [
     CoursesService,
-    AuthorService
+    AuthorService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })
