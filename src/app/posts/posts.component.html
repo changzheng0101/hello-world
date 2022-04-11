@@ -1,1 +1,7 @@
-<p>posts works!</p>
+<input (keyup.enter)="createPost(inputTitle)" #inputTitle type="text" class="form-control">
+<ul class="list-group">
+    
+    <li *ngFor="let post of posts" class="list-group-item">
+        <button class="btn btn-primary btn-sm" (click)="updatePost(post)">update</button>
+        {{post.title}}</li>
+</ul>
