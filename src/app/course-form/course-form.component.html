@@ -1,1 +1,31 @@
-<p>course-form works!</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+        <label for="courseName">CourseName</label>
+        <input ngModel #name="ngModel" name="name" required minlength="5" id="courseName" class="form-control">
+        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors?.['required']">required</div>
+            <div *ngIf="name.errors?.['minlength']">minlength is {{name.errors?.['minlength'].requiredLength}}</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select ngModel name="category" id="category" class="form-control">
+            <option value=""></option>
+            <option [value]="category.id" *ngFor="let category of CategoryOptions" >{{category.name}}</option>
+        </select>
+    </div>
+
+    <div class="checkbox">
+        <label for="moneyBack">
+            <input ngModel name="isMoneyBack" id="moneyBack" type="checkbox">30-day money back
+        </label>
+    </div>
+
+    <p>
+        {{f.value | json}}
+    </p>
+
+    <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+
+</form>
