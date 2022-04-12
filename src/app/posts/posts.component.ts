@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { throwError } from 'rxjs';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -15,9 +16,18 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getPosts()
-      .subscribe((result) => {
-        this.posts = result as any;
-        console.log(this.posts);
+      .subscribe({
+        next: result => {
+          this.posts = result as any;
+          console.log(this.posts);
+        },
+        error: (error: Response) => {
+          if (error.status == 404)
+            alert("not found result");
+          else {
+            throwError
+          }
+        }
       })
   }
 

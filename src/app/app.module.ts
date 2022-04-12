@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AuthorService } from './author.service';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AppErrorHandler } from './common/app-error-handler';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { CourseComponent } from './course/course.component';
@@ -25,6 +26,8 @@ import { TitleInputComponent } from './title-input/title-input.component';
 import { TitlePipe } from './title.pipe';
 import { TweetLikeComponent } from './tweet-like/tweet-like.component';
 import { ZippyComponent } from './zippy/zippy.component';
+import { UsersComponent } from './network/users/users.component';
+import { UserService } from './services/users.service';
 
 
 @NgModule({
@@ -47,7 +50,8 @@ import { ZippyComponent } from './zippy/zippy.component';
     NewCourseFormComponent,
     PasswordFormComponent,
     ChangePasswordComponent,
-    PostsComponent
+    PostsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -59,13 +63,15 @@ import { ZippyComponent } from './zippy/zippy.component';
   providers: [
     CoursesService,
     AuthorService,
-    PostService
+    PostService,
+    UserService,
+    { provide: ErrorHandler, useClass: AppErrorHandler } // 取代默认的处理
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
 
-export interface changeEvent{
-  status:boolean;
+export interface changeEvent {
+  status: boolean;
 }
