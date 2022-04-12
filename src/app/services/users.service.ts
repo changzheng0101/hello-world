@@ -38,7 +38,7 @@ export class UserService {
     getUser(): Observable<User> {
         return this.http.get<User>(this.url + '22/1')
             .pipe(
-                catchError(this.handleError) //交给这个函数处理 会继续向上抛出
+                catchError(this.handleError),//交给这个函数处理 会继续向上抛出
             );
     }
 

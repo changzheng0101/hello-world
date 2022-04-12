@@ -14,12 +14,18 @@ import { CourseComponent } from './course/course.component';
 import { CoursesComponent } from './courses.component';
 import { CoursesService } from './courses.service';
 import { FormFormatDirective } from './form-format.directive';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { HomeComponent } from './home/home.component';
 import { IfTestComponent } from './if-test/if-test.component';
 import { TestInterceptor } from './interceptor/test.interceptor';
+import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './network/users/users.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { PasswordFormComponent } from './password-form/password-form.component';
 import { PostsComponent } from './posts/posts.component';
+import { GithubFollowersService } from './services/githubFollwer.service';
 import { PostService } from './services/post.service';
 import { UserService } from './services/users.service';
 import { SignupFormComponent } from './signup-form/signup-form.component';
@@ -29,6 +35,7 @@ import { TitleInputComponent } from './title-input/title-input.component';
 import { TitlePipe } from './title.pipe';
 import { TweetLikeComponent } from './tweet-like/tweet-like.component';
 import { ZippyComponent } from './zippy/zippy.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 
 @NgModule({
@@ -52,7 +59,13 @@ import { ZippyComponent } from './zippy/zippy.component';
     PasswordFormComponent,
     ChangePasswordComponent,
     PostsComponent,
-    UsersComponent
+    UsersComponent,
+    NavbarComponent,
+    NotFoundComponent,
+    GithubFollowersComponent,
+    GithubProfileComponent,
+    HomeComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +79,7 @@ import { ZippyComponent } from './zippy/zippy.component';
     AuthorService,
     PostService,
     UserService,
+    GithubFollowersService,
     { provide: ErrorHandler, useClass: AppErrorHandler }, // 取代默认的处理
     { provide: HTTP_INTERCEPTORS, useClass: TestInterceptor, multi: true }
   ],
