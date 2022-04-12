@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,10 +15,13 @@ import { CoursesComponent } from './courses.component';
 import { CoursesService } from './courses.service';
 import { FormFormatDirective } from './form-format.directive';
 import { IfTestComponent } from './if-test/if-test.component';
+import { TestInterceptor } from './interceptor/test.interceptor';
+import { UsersComponent } from './network/users/users.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { PasswordFormComponent } from './password-form/password-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
+import { UserService } from './services/users.service';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { StarButtonComponent } from './star-button/star-button.component';
 import { SummaryPipe } from './summary.pipe';
@@ -26,8 +29,6 @@ import { TitleInputComponent } from './title-input/title-input.component';
 import { TitlePipe } from './title.pipe';
 import { TweetLikeComponent } from './tweet-like/tweet-like.component';
 import { ZippyComponent } from './zippy/zippy.component';
-import { UsersComponent } from './network/users/users.component';
-import { UserService } from './services/users.service';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { UserService } from './services/users.service';
     AuthorService,
     PostService,
     UserService,
-    { provide: ErrorHandler, useClass: AppErrorHandler } // 取代默认的处理
+    { provide: ErrorHandler, useClass: AppErrorHandler }, // 取代默认的处理
+    { provide: HTTP_INTERCEPTORS, useClass: TestInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

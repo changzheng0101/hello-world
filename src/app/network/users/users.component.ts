@@ -10,7 +10,9 @@ import { UserService } from 'src/app/services/users.service';
 export class UsersComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+
+  }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe({
@@ -18,6 +20,12 @@ export class UsersComponent implements OnInit {
       error: error => console.log(error),
       complete: () => console.log('done')
     });
+
+    this.userService.getUser().subscribe({
+      next: result => console.log(result),
+      error: error => console.log("process"),
+      complete: () => console.log('done')
+    })
   }
 
 }
